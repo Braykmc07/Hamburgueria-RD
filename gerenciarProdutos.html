@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gerenciar Produtos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <style>
+        img{
+            height: 40px;
+            width: 40px;
+        }
+        #corpoTb{
+            cursor: pointer;
+        }
+    </style>
+    <div class="container">
+        <h2>Gerenciar Produtos</h2>
+        <form>
+            <div class="form-group">
+                <input type="hidden" id="id" value="">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="text" class="form-control" id="valor" placeholder="10.00">
+            </div>
+            <div class="form-group">
+                <label for="imagem">Imagem:</label>
+                <input type="text" class="form-control" id="imagem" placeholder="URL:IMG">
+            </div>
+
+            <button type="button" class="btn btn-default" onclick="gravar()">Gravar</button>
+            <button type="button" class="btn btn-default" onclick="novo()">Novo</button>
+            <button type="button" class="btn btn-default" onclick="apagar()">Apagar</button>
+        </form>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Img</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTb">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let xhttp = new XMLHttpRequest();
+        function gravar() {
+            let nome = document.getElementById('nome').value;
+            let valor = document.getElementById('valor').value;
+            let imagem = document.getElementById('imagem').value;
+
+            let id = document.getElementById('id').value;
+            let metodo = "";
+            if(id != ""){
+                metodo = "PUT";
+                id = `"id":"${id}",`
+            }else{
+                metodo = "POST";
+                id = "";
+            }
+
+            let produto = `{${id} "nome":"${nome}", "valor":"${valor}", "imagem":"${imagem}"}`;
+            console.log(produto);
+
+            xhttp.open(metodo, "https://pascoa-chiquinha.herokuapp.com/produto/");
+
+            xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhttp.send(produto);
+            xhttp.onload = function () {
+                console.log(this.response);
+                burcarProduto();
+            }
+
+        }
+
+        let lsProduto = [];
+        function burcarProduto() {
+            xhttp.open("GET", "https://pascoa-chiquinha.herokuapp.com/produto/");
+            xhttp.send();
+            xhttp.onload = function () {
+                lsProduto = this.response;
+                lsProduto = JSON.parse(lsProduto);
+                let i = 0;
+                let corpoTb = "";
+                for (p of lsProduto) {
+                    corpoTb += `<tr onclick="editar(${i})"><td><img src='${p.imagem}'></td><td>${p.nome}</td><td>${p.valor}</td></tr>`;
+                    i++;
+                }
+                document.getElementById("corpoTb").innerHTML = corpoTb;
+            }
+            novo();
+        }
+
+        function editar(i) {
+            let p = lsProduto[i];
+            document.getElementById('nome').value = p.nome;
+            document.getElementById('valor').value = p.valor;
+            document.getElementById('imagem').value = p.imagem;
+            document.getElementById('id').value = p.id;
+        }
+
+        function novo() {
+            document.getElementById('nome').value = "";
+            document.getElementById('valor').value = "";
+            document.getElementById('imagem').value = "";
+            document.getElementById('id').value = "";
+        }
+
+        function apagar() {
+            let id = document.getElementById('id').value;
+            xhttp.open("DELETE", `https://pascoa-chiquinha.herokuapp.com/produto/${id}`);
+            xhttp.send();
+            xhttp.onload = function () {
+                burcarProduto();
+            }
+        }
+
+        burcarProduto();
+    </script>
+</body>
+
+</html>

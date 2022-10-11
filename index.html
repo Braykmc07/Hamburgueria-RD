@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Dona Chiquinha</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/script.js" ></script>
+</head>
+
+<body>
+
+    <h1>Doces da Dona Chiquinha <i class="material-icons" id="carrinho-principal" onclick="verListaProdutoSelecionado()" >&#xe8cc;</i></h1>
+    <div id="listaProduto">
+        <div class="embrulho" style="display: none;">
+            <div class="produto">
+                <img src="img/imagem.jfif" alt="">
+                <p> Nome do produto
+                    <span class="valor">20.00</span>
+                </p>
+                <i class="material-icons carrinho" onclick="addProdutoCarrinho()" >&#xe8cc;</i>
+            </div>
+        </div>
+    </div>
+    <div id="formulario" style="display: none;">
+        <label for="nome">NOME:</label>
+        <input type="text" id="nome">
+        <label for="endereco">ENDERECO:</label>
+        <input type="text" id="endereco">
+        <button id="btFinalizar">Finalizar</button>
+    </div>
+</body>
+
+</html>
