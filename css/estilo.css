@@ -34,7 +34,7 @@ h1{
     cursor: pointer;
     padding-left: 80px;
     vertical-align: text-bottom;
-   float: center; 
+   float: right; 
 }
 
 #carrinho-principal:hover{
@@ -76,7 +76,7 @@ h1{
 
 .embrulho{
     display: grid;
-    place-items: center;
+    place-items: left;
 }
 
 #formulario{
