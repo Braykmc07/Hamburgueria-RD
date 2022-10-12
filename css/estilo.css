@@ -12,10 +12,10 @@ img{
 h1{
     text-align: center;
     font-family: "Brush Script MT";
-    font-size: left;
+    font-size: 60px;
     color: white;
   text-shadow: 2px 2px 4px #000000;
-  padding-left: 180px;
+  padding-left: 100px;
 }
 
 .carrinho{
