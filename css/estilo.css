@@ -1,5 +1,4 @@
-body{
-    background-color: #e9ddd8;
+body{background-image: url(https://img.freepik.com/fotos-gratis/grande-cheeseburger-e-batatas-fritas_140725-2256.jpg?w=740&t=st=1665538331~exp=1665538931~hmac=3c936eb08e417992513475504fb860803041e4d679a3124ad58c91acd1f63881);
 }
 
 img{
@@ -20,7 +19,7 @@ h1{
 
 .carrinho{
     /* color: #e66b6b; */
-    color: #0000007d;
+    color: black;
     position: absolute;
     right: 8px;
     bottom: 14px;
@@ -30,7 +29,7 @@ h1{
 
 #carrinho-principal{
     font-size: 60px;
-    color: #000000;
+    color: red;
     cursor: pointer;
     padding-left: 80px;
     vertical-align: text-bottom;
