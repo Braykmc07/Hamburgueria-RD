@@ -1,7 +1,7 @@
 let xhttp = new XMLHttpRequest();
 let lsProduto = [];
 function burcarProduto() {
-    xhttp.open("GET", "https://hamburgueria-rd.herokuapp.com/produto/");
+    xhttp.open("GET", "https://pascoa-chiquinha.herokuapp.com/produto/");
     xhttp.send();
     xhttp.onload = function () {
         lsProduto = this.response;
