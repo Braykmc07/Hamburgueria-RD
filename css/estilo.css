@@ -12,7 +12,7 @@ img{
 h1{
     text-align: center;
     font-family: "Brush Script MT";
-    font-size: 60px;
+    font-size: left;
     color: white;
   text-shadow: 2px 2px 4px #000000;
   padding-left: 180px;
@@ -128,6 +128,13 @@ p{
     padding: 5px;
     font-family: "Lucida Console";
 }
-@media screen and (max-width:600px){
+@media screen and (max-width:600px
+
+){
     
 }
+ 
+
+
+
+
