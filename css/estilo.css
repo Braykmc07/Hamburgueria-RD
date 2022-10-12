@@ -57,7 +57,7 @@ h1{
 
 .quantidade{
     position: absolute;
-    float:right 300px;
+    right: -200px;
     bottom: 20px;
     background-color: #e66b6b;
     padding: 20px;
