@@ -1,8 +1,5 @@
 body{
     background-color: #e9ddd8;
-    @media screen and  (max - width:  768px){
-        background-color: blue;
-    }
 }
 
 img{
