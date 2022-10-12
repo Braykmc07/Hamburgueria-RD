@@ -124,6 +124,6 @@ function enviarPedido() {
     let fone = '556185607460';
     link = `https://api.whatsapp.com/send?phone=${fone}&text=${msg}`;
     window.open(link,'_blank');
-}
 
+}
 burcarProduto();
