@@ -57,7 +57,7 @@ h1{
 
 .quantidade{
     position: absolute;
-    right: -200px;
+    right: -100px;
     bottom: 20px;
     background-color: #e66b6b;
     padding: 20px;
@@ -120,7 +120,7 @@ p{
 
  .valor{
     text-align: right;
-    float: right ;
+    float: center ;
     margin-right: 30px;
     background-color: #0000007d;
     color: white;
