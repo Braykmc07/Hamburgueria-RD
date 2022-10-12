@@ -121,7 +121,7 @@ function enviarPedido() {
     let msg = `Olá gostaria de fazer o seguinte pedido:\n${pedido} \nTotal: ${total} \nNome: ${nome} \nEndereço: ${endereco}`;
     msg = encodeURI(msg);
     console.log(msg)
-    let fone = '55 61998299115';
+    let fone = '556182991115';
     link = `https://api.whatsapp.com/send?phone=${fone}&text=${msg}`;
     window.open(link,'_blank');
 
