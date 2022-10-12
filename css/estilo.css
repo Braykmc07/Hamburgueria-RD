@@ -128,3 +128,6 @@ p{
     padding: 5px;
     font-family: "Lucida Console";
 }
+@media screen and (max-width:600px){
+    
+}
